@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace PathFindingAlgo;
 
 
@@ -5,6 +7,11 @@ public struct MapPos(int x, int y)
 {
     public int X = x;
     public int Y = y;
+
+    private static int GetManhattanDistance(MapPos startPos, MapPos endPos)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 public struct MapData2D
@@ -75,6 +82,13 @@ public struct MapData2D
     public bool IsObstacle(MapPos pos)
     {
         return Get(pos) == -1;
+    }
+
+    public bool IsLegal(MapPos pos)
+    {
+        if (pos.X < 0 || pos.X >= Width || pos.Y < 0 || pos.Y >= Height) return false;
+
+        return true;
     }
 
     public void DrawMap()
