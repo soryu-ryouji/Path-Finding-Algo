@@ -44,7 +44,22 @@ reconstruct reverse path from goal to start
 by following parent pointers
 ```
 
+## Jump Point Search
+
+JPS 算法是 A-Star 寻路算法的改进型。
+
+A-Star 算法在扩展节点时会把节点所有邻居都考虑进去，openlist中点的数量会很多，导致搜索效率降低。
+
+JPS 算法通过跳跃避免无用的节点（这些节点通常都是需要改变行走方向的拐点），这也是 Jump Point 命名的来历。
+
+- Forced Neighbour(强迫邻居)：
+- Jump Point(跳点)
+  - 节点 x 是起点/终点。
+  - 节点 x 至少有一个强迫邻居。
+  - 如果父节点在斜方向（意味着这是斜向搜索），节点x的水平或垂直方向上有满足条件a，b的点。
+
 ## Reference
 
 1. [bilibili: Unity中实现A星寻路算法](https://www.bilibili.com/video/BV147411u7r5/)
 2. [Cheng Wei's Blog: A Star Algorithm 总结与实现](https://scm_mos.gitlab.io/motion-planner/a-star/)
+3. [Killer Aery: JPS/JPs+ 算法](https://www.cnblogs.com/KillerAery/p/12242445.html)
